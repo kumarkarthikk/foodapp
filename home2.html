@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kau-shi-can - Home Page 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header, footer {
+            width: 100%;
+            text-align: center;
+            padding: 2vh;
+            background: #007BFF;
+            color: white;
+            font-size: 2vh;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            padding: 2vh;
+        }
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            width: 80vw;
+            margin-bottom: 2vh;
+        }
+        .food-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2vh;
+            width: 80vw;
+        }
+        .food-item {
+            border: 1px solid #ccc;
+            padding: 2vh;
+            text-align: center;
+        }
+        .food-item img {
+            width: 100%;
+            height: auto;
+        }
+        .verify-button {
+            margin-top: 2vh;
+            padding: 1vh;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>Kau-shi-can</header>
+    <main>
+        <div class="filters">
+            <select id="food-type">
+                <option value="all">All</option>
+                <option value="veg">Veg</option>
+                <option value="non-veg">Non-Veg</option>
+            </select>
+            <select id="category">
+                <option value="all">All</option>
+                <option value="starters">Starters</option>
+                <option value="breads">Breads</option>
+                <option value="main-course">Main Course</option>
+                <option value="dessert">Dessert</option>
+                <option value="ice-cream">Ice Cream</option>
+                <option value="drinks">Drinks</option>
+            </select>
+            <input type="text" id="search" placeholder="Search food items...">
+        </div>
+        <div class="food-container">
+            <div class="food-item">
+                <img src="food1.jpg" alt="Food 1">
+                <p>Food Item 1</p>
+                <input type="checkbox">
+            </div>
+            <div class="food-item">
+                <img src="food2.jpg" alt="Food 2">
+                <p>Food Item 2</p>
+                <input type="checkbox">
+            </div>
+            <div class="food-item">
+                <img src="food3.jpg" alt="Food 3">
+                <p>Food Item 3</p>
+                <input type="checkbox">
+            </div>
+            <div class="food-item">
+                <img src="food4.jpg" alt="Food 4">
+                <p>Food Item 4</p>
+                <input type="checkbox">
+            </div>
+            <div class="food-item">
+                <img src="food5.jpg" alt="Food 5">
+                <p>Food Item 5</p>
+                <input type="checkbox">
+            </div>
+            <div class="food-item">
+                <img src="food6.jpg" alt="Food 6">
+                <p>Food Item 6</p>
+                <input type="checkbox">
+            </div>
+            <div class="food-item">
+                <img src="food7.jpg" alt="Food 7">
+                <p>Food Item 7</p>
+                <input type="checkbox">
+            </div>
+            <div class="food-item">
+                <img src="food8.jpg" alt="Food 8">
+                <p>Food Item 8</p>
+                <input type="checkbox">
+            </div>
+        </div>
+        <button class="verify-button" onclick="window.location.href='bounty.html'">Verify Order</button>
+    </main>
+    <footer>Contact: contact@kau-shi-can.com | Phone: 123-456-7890</footer>
+</body>
+</html>
