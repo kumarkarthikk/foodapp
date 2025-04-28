@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kau-shi-can - Timer Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header, footer {
+            width: 100%;
+            text-align: center;
+            padding: 2vh;
+            background: #007BFF;
+            color: white;
+            font-size: 2vh;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            padding: 2vh;
+        }
+        .timer {
+            font-size: 6vh;
+            font-weight: bold;
+            margin-bottom: 2vh;
+        }
+        .message {
+            font-size: 3vh;
+            color: #333;
+        }
+    </style>
+    <script>
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            const interval = setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.textContent = minutes + ":" + seconds;
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    window.location.href = 'hotel_selection.html';
+                }
+            }, 1000);
+        }
+        window.onload = function () {
+            const display = document.getElementById('timer');
+            startTimer(119, display);
+        };
+    </script>
+</head>
+<body>
+    <header>Kau-shi-can</header>
+    <main>
+        <div id="timer" class="timer">00:29</div>
+        <div class="message">Wait for hotels to receive your bounty</div>
+    </main>
+    <footer>Contact: contact@kau-shi-can.com | Phone: 123-456-7890</footer>
+</body>
+</html>
