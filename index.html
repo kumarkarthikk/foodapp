@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kau-shi-can - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            width: 30vw;
+            padding: 2vh;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 1vh;
+            margin: 1vh 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 1vh;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            margin-top: 1vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Kau-shi-can</h2>
+        <input type="text" id="username" placeholder="Enter Username">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="validateLogin()">Log In</button>
+        <p id="error-message" class="error"></p>
+    </div>
+
+    <script>
+        function validateLogin() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            if (username === password && username !== "") {
+                window.location.href = "home1.html"; // Redirect to Home Page 1
+            } else {
+                document.getElementById("error-message").innerText = "Password is incorrect";
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!-- Instructions to Run -->
+<!-- 1. Save each page as a separate .html file (e.g., home1.html, home2.html, bounty.html, timer.html, etc.). -->
+<!-- 2. Open the login.html file in a web browser. -->
+<!-- 3. The login page will validate the username and password before redirecting to Home Page 1. -->
+<!-- 4. Use a local server (like XAMPP or Python SimpleHTTPServer) if JavaScript redirects don't work directly. -->
