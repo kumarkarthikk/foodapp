@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kau-shi-can - Bounty Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header, footer {
+            width: 100%;
+            text-align: center;
+            padding: 2vh;
+            background: #007BFF;
+            color: white;
+            font-size: 2vh;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            padding: 2vh;
+        }
+        .bounty-container {
+            width: 80vw;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2vh;
+        }
+        .bounty-item {
+            border: 1px solid #ccc;
+            padding: 2vh;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .bounty-item input[type='checkbox'] {
+            transform: scale(1.5);
+        }
+        .preferences {
+            margin-top: 2vh;
+            width: 80vw;
+        }
+        .confirm-section {
+            margin-top: 2vh;
+            text-align: center;
+        }
+        .confirm-button {
+            margin-top: 2vh;
+            padding: 1vh;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>Kau-shi-can</header>
+    <main>
+        <h2>Bounty Confirmation</h2>
+        <div class="bounty-container">
+            <div class="bounty-item">
+                <p>Selected Food Item 1</p>
+                <input type="checkbox">
+            </div>
+            <div class="bounty-item">
+                <p>Selected Food Item 2</p>
+                <input type="checkbox">
+            </div>
+            <div class="bounty-item">
+                <p>Selected Food Item 3</p>
+                <input type="checkbox">
+            </div>
+            <div class="bounty-item">
+                <p>Selected Food Item 4</p>
+                <input type="checkbox">
+            </div>
+        </div>
+        <div class="preferences">
+            <label><input type="checkbox"> AC Preference</label><br>
+            <label><input type="number" placeholder="Chairs per table"></label><br>
+            <label><input type="number" placeholder="Number of tables"></label>
+        </div>
+        <div class="confirm-section">
+            <label>
+                <input type="checkbox"> I confirmed my checklist
+            </label>
+            <button class="confirm-button" onclick="window.location.href='timer.html'">Throw Bounty</button>
+        </div>
+    </main>
+    <footer>Contact: contact@kau-shi-can.com | Phone: 123-456-7890</footer>
+</body>
+</html>
