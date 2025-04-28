@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kau-shi-can - Home Page 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header, footer {
+            width: 100%;
+            text-align: center;
+            padding: 2vh;
+            background: #007BFF;
+            color: white;
+            font-size: 2vh;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 80vw;
+            padding: 2vh;
+        }
+        select, input {
+            width: 50%;
+            padding: 1vh;
+            margin: 1vh 0;
+        }
+        button {
+            padding: 1vh;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+        .error {
+            color: red;
+            margin-top: 1vh;
+        }
+    </style>
+</head>
+<body>
+    <header>Kau-shi-can</header>
+    <main>
+        <label>Start Location:</label>
+        <select id="start-location">
+            <option value="">Select City</option>
+            <option value="Srikakulam">Srikakulam</option>
+            <option value="Visakhapatnam">Visakhapatnam</option>
+            <option value="Rajahmundry">Rajahmundry</option>
+            <option value="Eluru">Eluru</option>
+            <option value="Vijayawada">Vijayawada</option>
+            <option value="Guntur">Guntur</option>
+            <option value="Ongole">Ongole</option>
+            <option value="Nellore">Nellore</option>
+            <option value="Tirupati">Tirupati</option>
+        </select>
+        
+        <label>End Location:</label>
+        <select id="end-location">
+            <option value="">Select City</option>
+            <option value="Srikakulam">Srikakulam</option>
+            <option value="Visakhapatnam">Visakhapatnam</option>
+            <option value="Rajahmundry">Rajahmundry</option>
+            <option value="Eluru">Eluru</option>
+            <option value="Vijayawada">Vijayawada</option>
+            <option value="Guntur">Guntur</option>
+            <option value="Ongole">Ongole</option>
+            <option value="Nellore">Nellore</option>
+            <option value="Tirupati">Tirupati</option>
+        </select>
+        
+        <p class="error" id="error-message"></p>
+        
+        <label>Middle Points (0-3):</label>
+        <select id="middle-points">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        
+        <div id="middle-point-selection"></div>
+        
+        <p id="route-display"></p>
+        
+        <button id="confirm-route" onclick="window.location.href='home2.html'">Confirm Route</button>
+    </main>
+    <footer>Contact: contact@kau-shi-can.com | Phone: 123-456-7890</footer>
+    
+    <script>
+        document.getElementById("end-location").addEventListener("change", function() {
+            let start = document.getElementById("start-location").value;
+            let end = this.value;
+            if (start && end && start === end) {
+                document.getElementById("error-message").innerText = "You can't select the same start and end city.";
+            } else {
+                document.getElementById("error-message").innerText = "";
+            }
+        });
+
+        document.getElementById("middle-points").addEventListener("change", function() {
+            let middleCount = parseInt(this.value);
+            let middleSelection = document.getElementById("middle-point-selection");
+            middleSelection.innerHTML = "";
+            for (let i = 0; i < middleCount; i++) {
+                let select = document.createElement("select");
+                select.innerHTML = document.getElementById("start-location").innerHTML;
+                middleSelection.appendChild(select);
+            }
+        });
+
+        document.querySelectorAll("select").forEach(select => {
+            select.addEventListener("change", function() {
+                let start = document.getElementById("start-location").value;
+                let end = document.getElementById("end-location").value;
+                let middleText = "";
+                let middleSelects = document.querySelectorAll("#middle-point-selection select");
+                middleSelects.forEach((sel, index) => {
+                    middleText += (index > 0 ? ", " : "") + sel.value;
+                });
+                
+                if (start && end && start !== end) {
+                    document.getElementById("route-display").innerText = `You are starting from - ${start}, Going to - ${end}, Via - ${middleText || "None"}`;
+                    document.getElementById("confirm-route").style.display = "block";
+                } else {
+                    document.getElementById("confirm-route").style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
